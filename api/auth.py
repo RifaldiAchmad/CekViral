@@ -12,6 +12,12 @@ import traceback
 
 router = APIRouter()
 
+
+@app.get("/healthz", include_in_schema=False)
+def health():
+    return {"status": "ok"}
+
+
 @router.post("/signup")
 def signup(user: UserRegister):
     try:
